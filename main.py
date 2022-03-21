@@ -17,7 +17,7 @@ average = np.mean(measures_list)
 
 name_csv = "calculos_fisica.csv"
 with open(name_csv, 'w') as file_csv:
-    file_csv.write('Numero columna;h cm; |h - hpromedio|;tiempo de reaccion,\n')
+    file_csv.write('Numero columna,h cm, |h - hpromedio|,tiempo de reaccion,\n')
     column_number = 0
     ei = 0.05
     significant_height_list = []
@@ -29,12 +29,12 @@ with open(name_csv, 'w') as file_csv:
         column_number += 1
         serch_height = column_number - 1
         tiempo = crf.tiempo_reaccion(measure, RO)
-        file_csv.write(f"{column_number}; {round(measure, 2)};{round(significant_height_list[serch_height], 2)}; {round(tiempo, 3)};\n")
+        file_csv.write(f"{column_number}, {round(measure, 2)},{round(significant_height_list[serch_height], 2)}, {round(tiempo, 3)},\n")
     error_abs = RO + ei
-    file_csv.write(f'\n\nPromedio;{average}')
-    file_csv.write(f'\nRO; {RO}')
-    file_csv.write(f'\nEi; {ei}')
-    file_csv.write(f'\nError absoluto; {error_abs}')
+    file_csv.write(f'\n\nPromedio,{average}')
+    file_csv.write(f'\nRO, {RO}')
+    file_csv.write(f'\nEi, {ei}')
+    file_csv.write(f'\nError absoluto, {error_abs}')
 file_csv.close()
 
 # show the csv with pandas
